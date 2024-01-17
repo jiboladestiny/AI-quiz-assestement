@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react'
 import SigninButton from './SigninButton';
 import UserAccountNav from './UserAccountNav';
+import { ThemeToggle } from './Themetoggle';
 
 type Props = {}
 
@@ -18,9 +19,12 @@ const Navbar = async (props: Props) => {
                   </p>
               </Link>
 
-              <div className="flex items-center">
-                   {/* {JSON.stringify(session?.user)} */}
-                  {session?.user ? (<UserAccountNav user={session?.user} />) : (<SigninButton text='Sign in'></SigninButton>)}
+              <div className='flex items-center'>
+                <ThemeToggle className='mr-3'/>
+                  <div className="flex items-center">
+                      {/* {JSON.stringify(session?.user)} */}
+                      {session?.user ? (<UserAccountNav user={session?.user} />) : (<SigninButton text='Sign in'></SigninButton>)}
+                  </div>
               </div>
           </div>
 

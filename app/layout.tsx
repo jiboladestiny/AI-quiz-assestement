@@ -6,6 +6,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import Navbar from '@/components/Navbar'
+import Providers from '@/components/Providers'
+// import Head from 'next/head'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -24,9 +26,16 @@ export default function RootLayout({
       <Script
         type="text/javascript"
         src="../node_modules/tw-elements/dist/js/tw-elements.umd.min.js"></Script>
-      <body className={cn(inter.className, 'antialiased min-h-screen pt-18')}>
-       <Navbar/>
-        {children}
+        {/* <Head>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
+        </Head> */}
+      <body className={cn(inter.className, "antialiased min-h-screen")}>        <Providers>
+          <Navbar />
+          <div className='pt-16'>
+          {children}
+          </div>
+        </Providers>
+     
       </body>
     </html>
   )
